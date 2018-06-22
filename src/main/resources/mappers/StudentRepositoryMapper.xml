@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgxb.repository.StudentRepository">
+
+    <resultMap id="studentResultMap" type="com.xgxb.bean.Student">
+        <id property="s_id" column="s_id"/>
+        <result property="s_name" column="s_name"/>
+        <result property="s_sex" column="s_sex"/>
+        <result property="s_birth" column="s_birth"/>
+        <association property="classes"  javaType="com.xgxb.bean.Classes">
+            <id property="class_id" column="s_class_id"/>
+        </association>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="studentResultMap" >
+        select  * from Student
+    </select>
+
+    <select id="findById" resultMap="studentResultMap">
+        select  * from Student where s_id=#{stuId}
+    </select>
+
+    <delete id="deleteStudent" >
+        delete from Student where s_id=#{stuId}
+    </delete>
+
+
+    <update id="updateStudent"  parameterType="com.xgxb.bean.Student">
+        update Student set 
+        <if test="student.s_name != null || student.s_name  != ''">
+            s_name=#{student.s_name},
+        </if>
+        <if test="student.s_sex != null || student.s_sex  != ''">
+            s_sex=#{student.s_sex},
+        </if>
+        <if test="student.s_birth != null || student.s_birth  != ''">
+            s_birth=#{student.s_birth},
+        </if>
+        <if test="student.classes.class_id != null || student.classes.class_id  >= 0">
+            s_class_id=#{student.classes.class_id}
+        </if>
+        where
+        s_id=#{student.s_id}
+    </update>
+
+
+    <insert id="insertStuden"  parameterType="com.xgxb.bean.Student">
+        insert into Student (s_name,s_sex,s_birth,s_class_id) values (
+                           #{student.s_name},
+                           #{student.s_sex},
+                           #{student.s_birth},
+                           #{student.classes.class_id})
+    </insert>
+
+</mapper>

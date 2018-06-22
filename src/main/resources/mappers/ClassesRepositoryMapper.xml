@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xgxb.repository.ClassesRepository">
+
+    <resultMap id="classesResultMap" type="com.xgxb.bean.Classes">
+        <id property="class_id" column="class_id"/>
+        <result  property="class_name" column="class_name"/>
+    </resultMap>
+
+
+    <select id="findAll" resultMap="classesResultMap">
+        select * from class
+    </select>
+
+    <select id="findById" resultMap="classesResultMap">
+         select * from class where class_id=#{cId}
+    </select>
+
+</mapper>
