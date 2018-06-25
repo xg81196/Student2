@@ -10,12 +10,12 @@
     <form action="edit" method="post">
         <table>
             <tr>
-                <td colspan="2" style="text-align: center; border: 1px solid black">修改用户 [[ ${student.s_name} ]] 的信息</td>
+                <td colspan="2" style="text-align: center; border: 1px solid black" >修改用户 [[ ${student.s_name} ]] 的信息</td>
             </tr>
             <tr>
                 <td style="text-align: center; border: 1px solid black">编号(ID)</td>
                 <td>
-                    <input type="text" class="id" th:value="${student.s_id}" readonly="readonly" value="1001"
+                    <input type="text" class="id" th:value="${student.s_id}" readonly="readonly"
                            name="s_id"
                            style="text-align: center" >
                 </td>
@@ -48,7 +48,7 @@
                 <td>
                     <select name="cid" >
                         <option th:each="class:${classList}" th:value="${class.class_id}"
-                                th:selected="${student.classes.class_id}==${class.class_id}?'selected':' '">[[ ${class.class_name} ]]</option>
+                                th:selected="${student.classes.class_id}==${class.class_id}">[[ ${class.class_name} ]]</option>
                     </select>
                 </td>
             </tr>
