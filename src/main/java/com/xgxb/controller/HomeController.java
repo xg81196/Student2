@@ -39,6 +39,7 @@ public class HomeController {
                 }
             }
         }
+        System.out.println(studentList);
         model.addAttribute("list",studentList);
         return "list";
     }
@@ -65,7 +66,7 @@ public class HomeController {
     @ResponseBody
     @RequestMapping(value = "/delete")
     public String delete(@RequestParam("id")Integer stu_id){
-        return studentService.deleteStudent(stu_id) > 0 ?"删除成功":"删除失败";
+        return studentService.deleteStudent(stu_id) > 0 ? "删除成功":"删除失败";
     }
 
 

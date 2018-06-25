@@ -40,6 +40,7 @@
     </table>
 </center>
 <script>
+
     function deleteUser(obj){
         var id =$(obj).prev();
         $.ajax({
@@ -49,10 +50,9 @@
             data:{"id":id.val()},
             success:function (data) {
                 alert(data);
-                location.reload()
+                location.reload();
             }
         });
-
     }
 </script>
 </body>
