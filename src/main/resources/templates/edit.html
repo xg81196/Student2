@@ -48,7 +48,7 @@
                 <td>
                     <select name="cid" >
                         <option th:each="class:${classList}" th:value="${class.class_id}"
-                                th:selected="${student.classes.class_id}==${class.class_id}">[[ ${class.class_name} ]]</option>
+                                th:selected="${student.classes.class_id}==${class.class_id}?'selected':' '">[[ ${class.class_name} ]]</option>
                     </select>
                 </td>
             </tr>
