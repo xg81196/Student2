@@ -6,13 +6,10 @@ CREATE TABLE `class` (
   PRIMARY KEY (class_id)
 );
 
-insert  into `class`(`class_id`,`class_name`) values (1,'S1');
+ insert  into `class`(`class_id`,`class_name`) values (1,'S1');
  insert  into `class`(`class_id`,`class_name`) values (2,'S2');
  insert  into `class`(`class_id`,`class_name`) values (3,'Y2');
-
-
  DROP TABLE IF EXISTS `Student`;
-
  CREATE TABLE `Student` (
    `s_id` int(11) NOT NULL AUTO_INCREMENT,
   `s_name` varchar(20) NOT NULL ,
@@ -21,6 +18,7 @@ insert  into `class`(`class_id`,`class_name`) values (1,'S1');
    `s_class_id` int(11) DEFAULT NULL,
    PRIMARY KEY (`s_id`)
  );
+
 
  insert  into `Student`(`s_id`,`s_name`,`s_sex`,`s_birth`,`s_class_id`) values (1,'aaaaaa','nan','1990-01-01',1);
  insert  into `Student`(`s_id`,`s_name`,`s_sex`,`s_birth`,`s_class_id`) values (2,'cccccccc','nan','1990-12-21',2);

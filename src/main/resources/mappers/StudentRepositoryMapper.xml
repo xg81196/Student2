@@ -14,9 +14,11 @@
     </resultMap>
 
 
-    <select id="findAll" resultMap="studentResultMap" >
+    <select id="findAll" resultMap="studentResultMap">
         select  * from Student
     </select>
+
+
 
     <select id="findById" resultMap="studentResultMap">
         select  * from Student where s_id=#{stuId}

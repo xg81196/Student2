@@ -24,7 +24,6 @@ public interface StudentRepository {
      */
     Student findById(@Param("stuId") Integer stuId);
 
-
     /**
      * 删除学生信息
      * @param stuId

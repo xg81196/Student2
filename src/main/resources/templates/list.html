@@ -34,20 +34,19 @@
             <td style="text-align: center; border: 1px solid black">
                 <a  th:href="@{'toedit/'+${user.s_id}}" th:text="edit" style="text-decoration: none; color: black">编辑(edit)</a>
                 <input type="hidden" th:value="${user.s_id}"/>
-                <a  href="" th:text="delete" style="text-decoration: none; color: black" onclick="deleteUser(this)">删除(delete)</a>
+                <a  href="" th:text="delete" style="text-decoration: none; color: black" th:onclick="'javascript:deleteUser(\''+${user.s_id}+'\');'">删除(delete)</a>
             </td>
         </tr>
     </table>
 </center>
 <script>
 
-    function deleteUser(obj){
-        var id =$(obj).prev();
+    function deleteUser(id){
         $.ajax({
             type:'post',
             url:'/delete',
             dataType:'text',
-            data:{"id":id.val()},
+            data:{"id":id},
             success:function (data) {
                 alert(data);
                 location.reload();

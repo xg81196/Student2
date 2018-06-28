@@ -25,10 +25,8 @@ public class HomeController {
 
     @RequestMapping(value = {"/","/home"})
     public String index(Model model){
-
         List<Student> studentList = studentService.findAll();
         List<Classes> classesList = classesService.findAll();
-
         for (Student student:studentList ) {
             if(student==null){
                 studentList.remove(studentList);
@@ -39,10 +37,10 @@ public class HomeController {
                 }
             }
         }
-        System.out.println(studentList);
         model.addAttribute("list",studentList);
         return "list";
     }
+
 
 
     @RequestMapping(value = "/toadd")
@@ -76,6 +74,7 @@ public class HomeController {
         model.addAttribute("classList",classesService.findAll());
         return "edit";
     }
+
 
     @RequestMapping(value = "/toedit/edit")
     public String  update(Student student, @RequestParam("cid")Integer cId){
